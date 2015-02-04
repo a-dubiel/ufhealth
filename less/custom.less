@@ -1,0 +1,541 @@
+/**
+ * custom.less
+ * 2015 Andrzej Dubiel | http://dubiel.me/
+ */
+
+ body {
+ 	background: @bg-body;
+ 	font-family: @font-family-sans-serif;
+ 	font-size: @font-size-base;
+ 	line-height: @line-height;
+ 	color: @text-color;
+ }
+
+// Main heading
+ .intro {
+ 	margin:40px 0;
+ 	text-align: center;
+
+ 	h1 {
+ 		color: #f4f4f4;
+ 		font-size:52px;
+ 		line-height:1.1;
+ 		padding:0;
+
+ 		span {
+ 			display:block;
+ 			color: lighten(@bg-body,25%);
+ 			font-weight: 700;
+ 			font-size:18px;	 		
+ 		}
+ 	}
+
+ 	ul {
+ 		margin:20px 0 0 0;
+ 		padding:0;
+ 	}
+
+ 	li {
+ 		display:inline;
+ 	}
+
+ 	a {
+ 		display:inline-block;
+ 		padding:5px 10px;
+ 		color: lighten(@bg-body,25%);
+ 		font-size:12px;
+ 		.transition(all 0.3s ease-in-out);
+ 		text-transform: uppercase;
+
+ 		&:after {
+ 			content:'';
+ 			background: @bg-body;
+ 			position: relative;
+ 			display:block;
+ 			height:3px;
+ 			width:100%;
+ 			bottom:-15px;
+ 			.transition(all 0.3s ease-in-out);
+
+ 		}
+
+ 		&.active,
+ 		&:hover {
+ 			color: #fff;
+
+ 			&:after {
+ 				background: lighten(@bg-body,15%);
+ 				bottom:-10px;		
+ 			}
+ 		}
+ 	}
+ }
+
+// Browser windows
+ .browser {
+ 	position: relative;
+ 	overflow: hidden;
+ 	background: url('../img/browser.jpg') no-repeat;
+ 	background-size:1150px 872px;
+ 	width:1150px;
+ 	height:872px;
+ 	margin: 40px auto;
+ 	.box-shadow(0px 0px 10px 5px rgba(0,0,0,0.5));
+ 	border-radius:5px;
+ }
+
+ .browser-top {
+ 	position: absolute;
+ 	top:0;
+ 	left:0;
+ 	width:1150px;
+ 	height:103px;
+ 	background:url('../img/browser-top.jpg') no-repeat;
+ 	background-size:1150px 103px;
+ 	z-index:5;
+ }
+
+ .browser, .browser-top {
+ 	&:after {
+ 		content:'';
+ 		display:block;
+ 		width:100%;
+ 		height:100%;
+ 		opacity:0;
+ 		background:#000;
+ 	}
+ }
+
+ // Main content
+
+ .content {
+ 	position: absolute;
+ 	top:72px;
+ 	left:0;
+ 	z-index:2;
+ }
+
+ nav {
+ 	background: @brand-primary;
+ 	height:28px;
+ 	padding:3px;
+ 	position: absolute;
+ 	top:72px;
+ 	left:584px;
+ 	border-left:1px solid rgba(255,255,255,0.25);
+ 	z-index:6;
+ }
+
+ // Concept specifc stuff
+ .concept-2 {
+ 	nav {
+ 		left:640px;
+ 	}
+ }
+
+ .concept-4 {
+ 	nav {
+ 		z-index:auto;
+ 	}
+ }
+
+ // Button styles
+ .btn {
+ 	display: inline-block;
+ 	height: 24px;
+ 	margin-bottom: 0; 
+ 	font-weight: 700;
+ 	text-align: center;
+ 	vertical-align: middle;
+ 	touch-action: manipulation;
+ 	cursor: pointer;
+ 	background-image: none;
+ 	white-space: nowrap;
+ 	padding: 3px 7px; 
+ 	font-size: @font-size-base;
+ 	line-height: 1.3;
+ 	border-radius: @border-radius;
+ 	.text-shadow(0px -1px 0px rgba(0,0,0,0.25));
+ 	.box-shadow(0px 1px 0px 0px rgba(255,255,255,0.25));
+ 	.transition(all 0.3s ease-in-out);
+
+ 	.fa {
+ 		font-size: @font-size-large;
+ 		margin-right:3px;
+ 		position: relative;
+ 		bottom:-1px;
+ 	}
+
+ }
+
+ .btn-link {
+ 	color: darken(@gray,50%);
+ 	text-shadow:none;
+ 	padding: 5px;
+ 	text-transform: uppercase;
+ 	font-size:10px;
+
+ 	&:hover,
+ 	&:active,
+ 	&.active {
+ 		color: @text-color;
+ 	}
+ }
+
+ .btn-danger {
+ 	color: @brand-danger;
+
+ 	&:hover,
+ 	&:active,
+ 	&.active {
+ 		color: darken(@brand-danger,20%);
+ 	}
+ }
+
+ .btn-blue {	
+ 	background-image: linear-gradient(#6C8DD0 0%, #4265AE 50%);
+ 	border: 1px solid #1F3E82;
+
+ 	&:hover,
+ 	&:active,
+ 	&.active {
+ 		background-image: linear-gradient(#6C8DD0 0%, #4265AE 100%);
+ 	}
+ }
+
+ .btn-success {	
+ 	background-image: linear-gradient(#9FD046 0%, #5BBA35 50%);
+ 	border: 1px solid rgba(90,132,40,0.33);
+
+ 	&:hover,
+ 	&:active,
+ 	&.active {
+ 		background-image: linear-gradient(#9FD046 0%, #5BBA35 100%);
+ 	}
+ }
+
+ .btn-icon {
+ 	width:28px;
+ }
+
+
+ // Dropdown
+ .dropdown {
+ 	position: absolute;
+ 	z-index:0;
+ 	left:584px;
+ 	top:102px;
+ 	transform: translateY(-50%);
+ 	opacity:0;
+ 	visibility: hidden;
+ 	background: @gray;
+ 	padding:10px;
+ 	width:275px;
+ 	.transition(all 0.3s ease-in-out);
+ 	z-index:1;
+ 	border: 1px solid darken(@gray,10%);
+ 	border-radius: 0px 0px 3px 3px;
+
+ 	&.show-me {
+ 		transform: translateY(0%);
+ 		opacity:1;
+ 		visibility: visible;
+ 	}
+
+ 	h3 {
+ 		font-size:13px;
+ 		margin-bottom:10px;
+ 	}
+
+ 	.label-text {
+ 		.clearfix();
+ 	}
+
+ 	input[type="radio"] {
+ 		display:none;
+ 	}
+
+ 	input[type="text"] {
+ 		display:inline-block;
+ 		width:100%;
+ 		background: #fff;
+ 		border: 1px solid darken(@gray,10%);
+ 		height:30px;
+ 		border-radius:3px;
+ 		padding:1px 10px;
+ 		margin:5px 0;
+ 	}
+
+ 	.label-radio {
+ 		display:inline-block;
+ 		cursor: pointer;
+ 		position: relative;
+ 		margin: 10px 10px 20px 0;
+
+ 		.fa {	        
+ 			background: darken(@gray,15%);
+ 			line-height: 15px;
+ 			text-align: center;
+ 			width: 15px; height: 15px;
+ 			border-radius:100%;
+ 			color: darken(@gray,15%);
+
+ 			&.fa-times:before {
+ 				transform: scale(0);
+ 				.transition(all 0.3s ease-in-out);
+ 			}
+ 		}
+ 	}
+
+ 	input:checked + label {
+ 		.fa {  
+ 			color: #fff;
+ 			background: @brand-primary;
+
+ 			&.fa-times:before {
+ 				transform: scale(1);
+ 			}
+ 		}
+ 	}
+ }
+ .clearfix {
+ 	.clearfix();
+ }
+
+ .text-success {
+ 	color: @brand-success;
+ }
+
+ // Notification
+ .notification {
+ 	position: absolute;
+ 	right:46px;
+ 	top:110px;
+ 	padding:20px;
+ 	border-radius:@border-radius;
+ 	opacity:0;
+ 	transform: translateX(50%);
+ 	.transition(all 0.1s ease-in-out);
+ 	z-index:10;
+
+ 	&.notification-success {
+ 		background: @brand-success;
+
+ 		.close {
+ 			color: darken(@brand-success,10%);
+ 		}
+ 	}
+
+ 	&.notification-danger {
+ 		background: @brand-danger;
+
+ 		.close {
+ 			color: darken(@brand-danger,10%);
+ 		}
+ 	}
+
+ 	&.show-me {
+ 		opacity: 1;  
+ 		transform: translateX(0%);
+ 	}
+
+ 	p {
+ 		color: #fff;
+ 		padding:0;
+ 		margin:0;
+ 	}
+
+ 	.close {
+ 		display: block;
+ 		width:15px;
+ 		height:15px;
+ 		position: absolute;
+ 		right:0px;
+ 		top:2px;
+ 		z-index:10;
+ 		line-height:15px;
+ 		font-size:12px;
+ 	}
+ }
+
+ // Ribbon
+ .ribbon-container {
+ 	position: absolute;
+ 	top:228px;
+ 	right:85px;
+ 	z-index:10;
+ }
+
+ .ribbon {
+ 	display:block;
+ 	background: lighten(@brand-primary,10%);
+ 	height: 60px;
+ 	position: relative;
+ 	width: 40px;
+ 	text-align: center;
+ 	.transition(all 0.3s ease-in-out);
+
+ 	&:after,
+ 	&:before {
+ 		border-top: 20px solid lighten(@brand-primary,10%);
+ 		content: '';
+ 		height: 0;
+ 		position: absolute;
+ 		top: 100%;
+ 		width: 0;
+ 	}
+ 	&:after {
+ 		border-left: 40px solid transparent;
+ 		right: 0px;
+ 	}
+
+ 	&:before {
+ 		border-right: 40px solid transparent;
+ 		left: 0px;
+ 	}
+
+ 	&:hover,
+ 	&.bookmark-added {
+ 		height:70px;
+
+ 		.fa {
+ 			color: @brand-dropdown;
+ 		}
+ 	}
+
+ 	&.bookmark-added {
+ 		.fa {
+ 			transform: scale(1.5);
+ 		}
+ 	}
+
+ 	.fa {
+ 		margin-top:20px;
+ 		font-size:18px;
+ 		.transition(all 0.3s ease-in-out);
+
+ 	}
+
+ }
+
+ // Drag and drop stuff
+
+ .drag-me {
+ 	position: relative;
+ 	z-index:20;
+ 	.transition(none);
+ 	cursor: move;
+ }
+
+ .overlay {
+ 	width:100%;
+ 	height:100%;
+ 	background: rgba(0,0,0,0.9);
+ 	position:relative;
+ 	z-index:10;
+ 	visibility: hidden;
+ 	opacity: 0;
+ }
+
+ .is-dragging {
+ 	.overlay {
+ 		visibility: visible;
+ 		opacity: 1;
+ 		.transition(all 0.3s ease-in-out);
+ 	}
+ }
+
+ .container {
+ 	width:900px;
+ 	height:600px;
+ 	margin:0 auto;
+ 	padding-top:100px;
+ }
+
+ .category {
+ 	float:left;
+ 	width:300px;
+ 	padding:10px;
+
+ 	h3 {
+ 		color: #fff;
+ 		text-transform: uppercase;
+ 		margin-top:5px;
+ 		font-size:16px;
+ 	}
+
+ 	p {
+ 		color:#fff;
+ 	}
+ }
+
+ .drop-in {
+ 	border: 2px solid rgba(255,255,255,0.5);
+ 	width:280px;
+ 	border-radius:5px;
+ 	height:280px;
+ 	padding:10px;
+ 	.transition(background-color 0.3s ease-in-out);
+
+ 	&.drop-hover {
+ 		background: rgba(255,255,255,0.1);
+ 		border: 2px solid rgba(255,255,255,0.75);
+ 	}
+ }
+
+ .drop-in-create {
+ 	border: 2px solid rgba(255,255,255,0.75);
+ 	width:280px;
+ 	border-radius:5px;
+ 	height:280px;
+ 	padding:10px;
+ 	border-style: dashed;
+ 	text-align:center;
+ 	color:#fff;
+ 	font-size:18px;
+ 	text-transform: uppercase;
+ 	padding:100px 30px 0 30px;
+
+ 	.fa {
+ 		display:block;
+ 		font-size:40px;
+ 		margin-bottom:10px;
+ 	}
+ }
+
+ .item {
+ 	background: @brand-primary;
+ 	width:45px;
+ 	height:45px;
+ 	float:left;
+ 	text-align:center;
+ 	line-height:45px;
+ 	font-size:24px;
+ 	color:#fff;
+ 	margin-right:5px;
+ 	margin-bottom:5px;
+ 	border-radius:5px;
+ 	transform: scale(1.5);
+ 	animation: addBookmark 0.2s linear 0.3s forwards;
+
+ 	.fa {
+ 		color:#fff;
+ 	}
+ }
+
+ @keyframes addBookmark {
+ 	from {
+ 		transform: scale(1.5);
+ 	}
+ 	to {
+ 		transform: scale(1);
+ 	}
+
+ }
+
+ .bookmark-added {
+ 	.fa {
+ 		color: @brand-dropdown;
+ 	}
+ }
+
